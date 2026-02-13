@@ -4,7 +4,7 @@ from pydantic import BaseModel
 from datetime import date
 
 
-class RecordCreate(BaseModel):
+class ExpenseCreate(BaseModel):
     title: str
     amount: float
     type: str
@@ -14,7 +14,7 @@ class RecordCreate(BaseModel):
 
 
 
-class RecordUpdate(BaseModel):
+class ExpenseUpdate(BaseModel):
     title: Optional[str] = None
     amount: Optional[float] = None
     type: Optional[str] = None
@@ -22,7 +22,7 @@ class RecordUpdate(BaseModel):
     date: Optional[str] = None
 
 
-class RecordSend(BaseModel):
+class ExpenseSend(BaseModel):
     title:str
     amount:float
     type:str
