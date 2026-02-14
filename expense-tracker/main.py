@@ -1,10 +1,11 @@
 from fastapi import FastAPI
+from routes.expense import router
 
 app = FastAPI()
 
-# app.add_api_route()
+app.include_router(router)
 
 
 @app.get("/")
 def home():
-    return {"msg":"expense tracker is runinnnnnnngggg"}
+    return {"msg": "expense tracker is runinnnnnnngggg"}

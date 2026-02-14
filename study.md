@@ -32,3 +32,16 @@ async def create_record(record: RecordCreate):
 means:
 
 ✅ "Hey FastAPI, expect JSON body and validate it using RecordCreate schema"
+
+
+## we can also directly add it to db ...without model
+@router.post("/")
+
+async def create_record(record: RecordCreate):
+
+    collection = get_collection("records")
+
+    result = await collection.insert_one(record.dict())
+
+    created = await collection.find_one({"_id": result.inserted_id})
+    return record_serializer(created)
